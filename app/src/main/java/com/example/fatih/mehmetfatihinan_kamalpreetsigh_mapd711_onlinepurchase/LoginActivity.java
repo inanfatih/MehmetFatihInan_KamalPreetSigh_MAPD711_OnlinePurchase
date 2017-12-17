@@ -49,19 +49,19 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         String tables1[]={"clerk"};
-        String tableCreatorString1[] = {"CREATE TABLE clerk ( employeeId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT NOT NULL UNIQUE, password TEXT, firstname TEXT, lastname TEXT);"};
+        String tableCreatorString1[] = {"CREATE TABLE clerk ( employeeId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT NOT NULL UNIQUE, password TEXT, firstName TEXT, lastName TEXT);"};
 
         final DatabaseManager db = new DatabaseManager(this);
         db.dbInitialize( tables1,tableCreatorString1);
 
 
         String tables2[]={"customer"};
-        String tableCreatorString2[] = {"CREATE TABLE customer ( customerId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT NOT NULL UNIQUE, password TEXT, firstname TEXT, lastname TEXT, address TEXT, city TEXT, postalcode TEXT );"};
+        String tableCreatorString2[] = {"CREATE TABLE customer ( customerId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT NOT NULL UNIQUE, password TEXT, firstName TEXT, lastName TEXT, address TEXT, city TEXT, postalCode TEXT );"};
         db.dbInitialize( tables2,tableCreatorString2);
 
 
         final String tables3[]={"order"};
-        String tableCreatorString3[] = {"CREATE TABLE order ( orderId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, customerId INTEGER NOT NULL, productId INTEGER NOT NULL, quantity INTEGER NOT NULL, price INTEGER, shipped INTEGER NOT NULL, orderdate NUMERIC NOT NULL );"};
+        String tableCreatorString3[] = {"CREATE TABLE order ( orderId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, customerId INTEGER NOT NULL, productId INTEGER NOT NULL, quantity INTEGER NOT NULL, price INTEGER, shipped INTEGER NOT NULL, orderDate NUMERIC NOT NULL );"};
         db.dbInitialize( tables3,tableCreatorString3);
 
         String tables4[]={"product"};
