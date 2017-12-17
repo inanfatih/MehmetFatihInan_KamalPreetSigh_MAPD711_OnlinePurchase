@@ -19,6 +19,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 
 
 
@@ -52,11 +61,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
         final String tables3[]={"order"};
-        String tableCreatorString3[] = {"CREATE TABLE order ( orderId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, customerId INTEGER NOT NULL, productId INTEGER NOT NULL, quantity INTEGER NOT NULL, price REAL, shipped INTEGER NOT NULL, orderdate NUMERIC NOT NULL );"};
+        String tableCreatorString3[] = {"CREATE TABLE order ( orderId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, customerId INTEGER NOT NULL, productId INTEGER NOT NULL, quantity INTEGER NOT NULL, price INTEGER, shipped INTEGER NOT NULL, orderdate NUMERIC NOT NULL );"};
         db.dbInitialize( tables3,tableCreatorString3);
 
         String tables4[]={"product"};
-        String tableCreatorString4[] = {"CREATE TABLE product ( productId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, productName TEXT NOT NULL UNIQUE, price REAL NOT NULL, quantity INTEGER NOT NULL, image BLOB );"};
+        String tableCreatorString4[] = {"CREATE TABLE product ( productId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, productName TEXT NOT NULL UNIQUE, price INTEGER NOT NULL, image BLOB );"};
         db.dbInitialize( tables4,tableCreatorString4);
 
         String tables5[]={"shoppingcart"};
@@ -66,24 +75,23 @@ public class LoginActivity extends AppCompatActivity {
         final String fields[] = {"customerId", "productId", "quantity", "price"};
         final int[] record = new int[4];
 
+/*
+
+        record[0]=1;
+        record[1]=2;
+        record[2]=3;
+        record[3]=4;
+
+        ContentValues values = new ContentValues();
+        db.addRecord(values, "shoppingcart", fields,record);
+*/
+
+
         final TextView display = (TextView) findViewById(R.id.display);
 
         final Button btnShowStudent = (Button) findViewById(R.id.email_sign_in_button);
         btnShowStudent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                record[0]=1;
-                record[1]=2;
-                record[2]=3;
-                record[3]=4;
-//                Log.d("Name: ", record[1]);
-                //populate the row with some values
-                ContentValues values = new ContentValues();
-                //for (int i=1;i<record.length;i++)
-                //values.put(fields[i],record[i]);
-                //add the row to the database
-                db.addRecord(values, "shoppingcart", fields,record);
-
 
                 // Reading all records
                 List table = db.getTable("shoppingcart");

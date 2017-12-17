@@ -33,16 +33,18 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="163dp"
+                android:layout_height="172dp"
                 app:srcCompat="@drawable/mainscreenimage" />
+
             <TextView
+                android:id="@+id/display"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Let Shopping Begin"
+                android:padding="20dp"
+                android:text="Cell Phones with Best Prices"
                 android:textAlignment="center"
                 android:textColor="@color/primary_text"
-                android:textSize="24sp"
-                android:padding="20dp"/>
+                android:textSize="24sp" />
 
 
             <android.support.design.widget.TextInputLayout
@@ -88,11 +90,5 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-        <item
-            android:id="@+id/myswitch"
-            android:title=""
-            android:showAsAction="always"
-            android:actionLayout="@layout/switch_layout"
-            />
     </ScrollView>
 </LinearLayout>
